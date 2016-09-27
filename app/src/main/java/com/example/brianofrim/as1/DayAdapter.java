@@ -16,6 +16,7 @@ import java.util.List;
  * Created by brianofrim on 2016-09-24.
  */
 
+//based on info found here: https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
 
 public class DayAdapter extends ArrayAdapter<Day> {
 

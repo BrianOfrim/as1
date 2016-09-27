@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -67,11 +71,25 @@ public class AddHabitActivity extends AppCompatActivity {
 //        daysListView.setAdapter(DOWadapter);
     }
 
-    public void showDatePickerDialog(View v) {
-        DatePickerDialog dialog = new DatePickerDialog(AddHabitActivity.this,
-                new mDateSetListener(), startYear, startMonth, startDay);
-        dialog.show();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.add_habits_menu, menu);
+        return true;
     }
+
+    public void goToToday(MenuItem menu) {
+        Toast.makeText(this,"Today", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AddHabitActivity.this,MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToViewHabits(MenuItem menu) {
+        Toast.makeText(this,"ViewHabits", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(AddHabitActivity.this,ListHabitsActivity.class);
+        startActivity(intent);
+    }
+
 
     public void submitHabitToList(View v){
         // get properties required to create a habit
@@ -83,7 +101,7 @@ public class AddHabitActivity extends AppCompatActivity {
         dt.setMinutes(0);
         dt.setSeconds(0);
 
-        TextView nameTextView = (TextView)findViewById(R.id.habitNameText);
+        EditText nameEditText = (EditText) findViewById(R.id.habitNameEdit);
 
         boolean activeDays[] = {false,false,false,false,false,false,false};
 
@@ -105,12 +123,18 @@ public class AddHabitActivity extends AppCompatActivity {
 
         HabitListController habitListController = new HabitListController();
         HabitList habitList = HabitListController.getHabitList();
-        habitList.addHabit(nameTextView.getText().toString(),activeDays ,dt.getTime());
+        habitList.addHabit(nameEditText.getText().toString(),activeDays ,dt.getTime());
 
         Toast.makeText(this,"Add Habit", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(AddHabitActivity.this,ListHabitsActivity.class);
         startActivity(intent);
 
+    }
+
+    public void showDatePickerDialog(View v) {
+        DatePickerDialog dialog = new DatePickerDialog(AddHabitActivity.this,
+                new mDateSetListener(), startYear, startMonth, startDay);
+        dialog.show();
     }
 
     class mDateSetListener implements DatePickerDialog.OnDateSetListener {

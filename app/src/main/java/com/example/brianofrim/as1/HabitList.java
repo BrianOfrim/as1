@@ -8,13 +8,13 @@ import java.util.List;
  * Created by brianofrim on 2016-09-20.
  */
 public class HabitList {
-    private List<Habit> activeHabits;
+    private ArrayList<Habit> activeHabits;
 
     HabitList(){
         activeHabits = new ArrayList<Habit>();
     }
 
-    public List<Habit> getHabits(){
+    public ArrayList<Habit> getHabits(){
         return this.activeHabits;
     }
 

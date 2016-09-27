@@ -30,7 +30,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/HabitNameTextBox"
+        android:id="@+id/habitNameEdit"
         android:layout_below="@+id/habitNameText"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
@@ -41,8 +41,8 @@
         android:text="change"
         android:onClick="showDatePickerDialog"
         android:id="@+id/button"
-        android:layout_below="@+id/HabitNameTextBox"
-        android:layout_alignEnd="@+id/HabitNameTextBox" />
+        android:layout_below="@+id/habitNameEdit"
+        android:layout_alignParentEnd="true" />
 
     <!--<ListView-->
         <!--android:layout_width="wrap_content"-->
@@ -132,6 +132,14 @@
         android:layout_below="@+id/friday_switch"
         android:layout_alignParentStart="true"
         android:checked="false" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New RadioButton"
+        android:id="@+id/radioButton"
+        android:layout_above="@+id/sunday_switch"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

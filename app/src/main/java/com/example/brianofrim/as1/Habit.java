@@ -1,5 +1,6 @@
 package com.example.brianofrim.as1;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -103,8 +104,23 @@ public class Habit {
 
     }
 
+    public String formatDaysOfWeek(){
+        String sunday_Str = (daysOfTheWeek[0])? "Sun ": "";
+        String monday_Str = (daysOfTheWeek[1])? "Mon ": "";
+        String tuesday_Str = (daysOfTheWeek[2])? "Tue ": "";
+        String wednesday_Str = (daysOfTheWeek[3])? "Wen ": "";
+        String thursday_Str = (daysOfTheWeek[4])? "Thu ": "";
+        String friday_Str = (daysOfTheWeek[5])? "Fri ": "";
+        String saturday_Str = (daysOfTheWeek[6])? "Sat ": "";
+
+        return sunday_Str + monday_Str + tuesday_Str + wednesday_Str + thursday_Str + friday_Str + saturday_Str;
+
+    }
+
     public String toString(){
-        return this.getTitle();
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyy");
+
+        return this.getTitle() + " Made On: "+ formatDate.format(dateCreated.getTime()) + " Days: " + formatDaysOfWeek();
     }
     public Integer getTimesNotCompleted(){
         return this.habbitCompletions.size() - this.getTimesCompleted();

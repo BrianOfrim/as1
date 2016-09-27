@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void viewHabit(MenuItem menu) {
+    public void goToViewHabits(MenuItem menu) {
         Toast.makeText(this,"Habits", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MainActivity.this,ListHabitsActivity.class);
         startActivity(intent);
     }
 
-    public void addHabit(MenuItem menu) {
+    public void goToAddHabit(MenuItem menu) {
         Toast.makeText(this,"Add Habit", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MainActivity.this,AddHabitActivity.class);
         startActivity(intent);
