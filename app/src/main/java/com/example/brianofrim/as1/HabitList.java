@@ -29,16 +29,15 @@ public class HabitList {
         return false;
     }
 
-    public void addHabit(String newHabit, boolean [] daysOfWeek){
+    public void addHabit(String newHabit, boolean [] daysOfWeek, long dateCreatedMillis){
         // only add unique names
         if(!this.habitExists(newHabit)){
-            this.activeHabits.add(new Habit(newHabit, daysOfWeek));
+            this.activeHabits.add(new Habit(newHabit, daysOfWeek,dateCreatedMillis));
         }else {
             //Error
         }
 
     }
-
 
     public void removeHabit(String habitName){
         for(Iterator<Habit> h = this.activeHabits.iterator(); h.hasNext();){
@@ -47,5 +46,15 @@ public class HabitList {
                 h.remove();
             }
         }
+    }
+
+    public ArrayList<Habit> getTodaysHabits(int dayOfWeek){
+        ArrayList<Habit> habitsToday = new ArrayList<Habit>();
+        for (Habit h: activeHabits) {
+            if(h.activeOnDayOfTheWeek(dayOfWeek)){
+                habitsToday.add(h);
+            }
+        }
+        return habitsToday;
     }
 }

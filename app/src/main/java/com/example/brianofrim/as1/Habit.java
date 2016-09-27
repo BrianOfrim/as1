@@ -18,30 +18,14 @@ public class Habit {
 
     private List<Long> habbitCompletions; // list of completion dates in millis since Jan 1 1970
 
-    public Habit(){
-        this.dateCreated = new GregorianCalendar();
-        this.habbitCompletions= new ArrayList<Long>();
-    }
 
-    public Habit(String newTitle){
+    public Habit(String newTitle, boolean[] daysOfWeek, long dateCreatedMillis){
         this.title = newTitle;
         this.dateCreated = new GregorianCalendar();
-        this.dateCreated.set(Calendar.HOUR,0);
-        this.dateCreated.set(Calendar.MINUTE,0);
-        this.dateCreated.set(Calendar.SECOND,0);
-        this.dateCreated.set(Calendar.MILLISECOND,0);
-        this.habbitCompletions= new ArrayList<Long>();
-    }
-
-    public Habit(String newTitle, boolean[] daysOfWeek){
-        this.title = newTitle;
-        this.dateCreated = new GregorianCalendar();
-        this.dateCreated.set(Calendar.HOUR,0);
-        this.dateCreated.set(Calendar.MINUTE,0);
-        this.dateCreated.set(Calendar.SECOND,0);
-        this.dateCreated.set(Calendar.MILLISECOND,0);
+        this.dateCreated.setTimeInMillis(dateCreatedMillis);
         this.habbitCompletions= new ArrayList<Long>();
         this.daysOfTheWeek = daysOfWeek;
+
     }
 
     public Calendar getDateCreated() {
@@ -64,7 +48,7 @@ public class Habit {
         return this.daysOfTheWeek;
     }
 
-    public boolean getDayOfTheWeek(int dayIndex){
+    public boolean activeOnDayOfTheWeek(int dayIndex){
         return this.daysOfTheWeek[dayIndex];
     }
 
@@ -72,7 +56,7 @@ public class Habit {
         this.daysOfTheWeek[dayIndex] = value;
     }
 
-    public List<Long> getHabbitCompletions() {
+    public List<Long> getHabitCompletions() {
         return habbitCompletions;
     }
 
@@ -114,11 +98,14 @@ public class Habit {
     // check each day since
     public Integer getTimesCompleted(){
         List<Long> habitDays = this.getHabitDays();
-        habitDays.retainAll(this.getHabbitCompletions()); //the number of days where the habit was completed
+        habitDays.retainAll(this.getHabitCompletions()); //the number of days where the habit was completed
         return habitDays.size();
 
     }
 
+    public String toString(){
+        return this.getTitle();
+    }
     public Integer getTimesNotCompleted(){
         return this.habbitCompletions.size() - this.getTimesCompleted();
     }

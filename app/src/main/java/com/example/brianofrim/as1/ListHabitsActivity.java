@@ -15,21 +15,19 @@ public class ListHabitsActivity extends AppCompatActivity{
 //    private ArrayList<Day> daysOfTheWeek = new ArrayList<Day>();
 //    private ListView daysListView;
 //    private DayAdapter dayAdapter;
+    private HabitList habitList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_list_habits);
+
+
+        setContentView(R.layout.activity_list_habits);
+        habitList = HabitListController.getHabitList();
 //        daysListView = (ListView) findViewById(R.id.daysOfWeekListView);
 //
-//        this.daysOfTheWeek.add(new Day("Sunday", false));
-//        this.daysOfTheWeek.add(new Day("Monday", false));
-//        this.daysOfTheWeek.add(new Day("Tuesday", false));
-//        this.daysOfTheWeek.add(new Day("Wednesday", false));
-//        this.daysOfTheWeek.add(new Day("Thursday", false));
-//        this.daysOfTheWeek.add(new Day("Friday", false));
-//        this.daysOfTheWeek.add(new Day("Saturday", false));
+
 //
 //        this.dayAdapter = new DayAdapter(this.daysOfTheWeek,this);
 //

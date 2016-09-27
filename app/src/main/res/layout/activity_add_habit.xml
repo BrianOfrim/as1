@@ -56,10 +56,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add habit"
+        android:onClick="submitHabitToList"
         android:id="@+id/addHabitBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/daysOfWeekListView"
-        android:layout_alignStart="@+id/daysOfWeekListView" />
+        android:layout_alignParentBottom="true" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,6 +69,69 @@
         android:id="@+id/selectedDateText"
         android:layout_alignBottom="@+id/button"
         android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sunday"
+        android:id="@+id/sunday_switch"
+        android:checked="false"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/habitNameText" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friday"
+        android:id="@+id/friday_switch"
+        android:checked="false"
+        android:layout_below="@+id/thursday_switch"
+        android:layout_alignParentStart="true" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thursday"
+        android:id="@+id/thursday_switch"
+        android:checked="false"
+        android:layout_below="@+id/wednesday_switch"
+        android:layout_alignLeft="@+id/habitNameText" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wednesday"
+        android:id="@+id/wednesday_switch"
+        android:checked="false"
+        android:layout_below="@+id/tuesday_switch"
+        android:layout_alignLeft="@+id/habitNameText" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tuesday"
+        android:id="@+id/tuesday_switch"
+        android:checked="false"
+        android:layout_below="@+id/monday_switch"
+        android:layout_alignLeft="@+id/habitNameText" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monday"
+        android:id="@+id/monday_switch"
+        android:checked="false"
+        android:layout_below="@+id/sunday_switch"
+        android:layout_alignLeft="@+id/habitNameText" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saturday"
+        android:id="@+id/saturday_switch"
+        android:layout_below="@+id/friday_switch"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
 
 
 </RelativeLayout>
