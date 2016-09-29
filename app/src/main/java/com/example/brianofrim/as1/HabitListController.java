@@ -18,17 +18,21 @@ public class HabitListController {
         return habitList;
     }
 
-    public void addHabitToList(String newHabit, boolean [] daysOfWeek, long dateCreatedInMillis){
+    static public void addHabitToList(String newHabit, boolean [] daysOfWeek, long dateCreatedInMillis){
         getHabitList().addHabit(newHabit,daysOfWeek,dateCreatedInMillis);
 
     }
 
-    public void removeHabitFromList(String habitName){
+    static public void removeHabitFromList(String habitName){
         getHabitList().removeHabit(habitName);
     }
 
-    public ArrayList<Habit> getTodaysHabits(int dayOfWeek){
+    static public ArrayList<Habit> getTodaysHabits(int dayOfWeek){
         return getHabitList().getTodaysHabits(dayOfWeek);
+    }
+
+    static public Habit getHabitAt(int index){
+        return getHabitList().getHabitAt(index);
     }
 }
 

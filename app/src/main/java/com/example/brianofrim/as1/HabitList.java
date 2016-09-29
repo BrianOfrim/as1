@@ -57,4 +57,8 @@ public class HabitList {
         }
         return habitsToday;
     }
+
+    public Habit getHabitAt(int index){
+        return activeHabits.get(index);
+    }
 }

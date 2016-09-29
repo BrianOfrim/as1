@@ -3,6 +3,7 @@ package com.example.brianofrim.as1;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Habit {
     //private Integer timesCompleted;
 
 
-    private List<Long> habbitCompletions; // list of completion dates in millis since Jan 1 1970
+    private ArrayList<Long> habbitCompletions; // list of completion dates in millis since Jan 1 1970
 
 
     public Habit(String newTitle, boolean[] daysOfWeek, long dateCreatedMillis){
@@ -57,12 +58,14 @@ public class Habit {
         this.daysOfTheWeek[dayIndex] = value;
     }
 
-    public List<Long> getHabitCompletions() {
+    public ArrayList<Long> getHabitCompletions() {
         return habbitCompletions;
     }
 
-    public void addHabitCompletion(Long completion){
-        this.habbitCompletions.add(completion);
+    public void addHabitCompletion(){
+
+        Calendar nowCal = Calendar.getInstance();
+        this.habbitCompletions.add(nowCal.getTimeInMillis());
     }
 
     public void removeHabitCompletion(Long completionTime){ // competionTime is in millis since Jan 1 1970
@@ -124,6 +127,25 @@ public class Habit {
     }
     public Integer getTimesNotCompleted(){
         return this.habbitCompletions.size() - this.getTimesCompleted();
+    }
+
+    private long getTodayInMillis(){
+        Calendar todayCal =  Calendar.getInstance();
+        todayCal.set(Calendar.HOUR,0);
+        todayCal.set(Calendar.MINUTE,0);
+        todayCal.set(Calendar.SECOND,0);
+        todayCal.set(Calendar.MILLISECOND,0);
+        return todayCal.getTimeInMillis();
+    }
+
+
+
+    public boolean completedToday(){
+        if(habbitCompletions.size() == 0) return false;
+        Long todayInMillis = getTodayInMillis();
+        Long lastCompletion = habbitCompletions.get(habbitCompletions.size() -1);
+
+        return lastCompletion > todayInMillis;
     }
 
 }

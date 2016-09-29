@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/today_menu_item_viewHabits"
         android:title="Today"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:onClick="goToToday"/>
     <item android:id="@+id/add_menu_item_viewHabits"
         android:title="Add habit"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:onClick="goToAddHabit"/>
 </menu>

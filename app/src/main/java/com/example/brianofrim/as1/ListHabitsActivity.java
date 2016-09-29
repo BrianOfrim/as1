@@ -45,6 +45,7 @@ public class ListHabitsActivity extends AppCompatActivity{
 
     public void goToAddHabit(MenuItem menu) {
         Toast.makeText(this,"Add", Toast.LENGTH_SHORT).show();
+
         Intent intent = new Intent(ListHabitsActivity.this,AddHabitActivity.class);
         startActivity(intent);
     }
@@ -71,9 +72,11 @@ public class ListHabitsActivity extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 
-                String item = ((TextView)view).getText().toString();
-
-                Toast.makeText(getBaseContext(), item, Toast.LENGTH_LONG).show();
+                //Habit habit = habitList.getHabitAt(position);
+            Intent intent = new Intent(ListHabitsActivity.this,HabitDetailActivity.class);
+            intent.putExtra("index",position);
+            startActivity(intent);
+                //Toast.makeText(getBaseContext(), habit.getTitle(), Toast.LENGTH_LONG).show();
 
             }
         });

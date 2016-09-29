@@ -7,6 +7,39 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.brianofrim.as1.habitDetailActivity">
+    tools:context=".HabitDetailActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Habit Detail"
+        android:id="@+id/habit_detail_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Number of completions:"
+        android:id="@+id/number_of_completions_title"
+        android:layout_below="@+id/habit_detail_title"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0"
+        android:id="@+id/number_of_completions_number"
+        android:layout_alignTop="@+id/number_of_completions_title"
+        android:layout_toEndOf="@+id/number_of_completions_title" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/completions_listview"
+        android:layout_below="@+id/number_of_completions_title"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

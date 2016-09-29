@@ -13,8 +13,8 @@ import java.util.ArrayList;
  * Created by brianofrim on 2016-09-27.
  */
 public class HabitListAdapter extends ArrayAdapter<Habit>{
-    public HabitListAdapter(Context context, ArrayList<Habit> users) {
-        super(context, 0, users);
+    public HabitListAdapter(Context context, ArrayList<Habit> habits) {
+        super(context, 0, habits);
     }
 
     @Override
