@@ -17,4 +17,12 @@ android:layout_height="match_parent">
     android:layout_below="@id/habit_title"
     android:textStyle="bold"/>
 
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="New Button"
+    android:id="@+id/delete_habit_button"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

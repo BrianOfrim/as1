@@ -19,6 +19,15 @@ public class HabitList {
     }
 
 
+//    private boolean habitExists(String newHabitName){
+//        for(Iterator<Habit> h = this.activeHabits.iterator(); h.hasNext();){
+//            Habit habit = h.next();
+//            if(habit.getTitle().equals(newHabitName)){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
     private boolean habitExists(String newHabitName){
         for(Iterator<Habit> h = this.activeHabits.iterator(); h.hasNext();){
             Habit habit = h.next();
@@ -31,13 +40,16 @@ public class HabitList {
 
     public void addHabit(String newHabit, boolean [] daysOfWeek, long dateCreatedMillis){
         // only add unique names
-        if(!this.habitExists(newHabit)){
-            this.activeHabits.add(new Habit(newHabit, daysOfWeek,dateCreatedMillis));
-        }else {
-            //Error
+        if(!this.habitExists(newHabit)) {
+            this.activeHabits.add(new Habit(newHabit, daysOfWeek, dateCreatedMillis));
         }
 
     }
+
+    public int getNumberOfHabits(){
+        return this.activeHabits.size();
+    }
+
 
     public void removeHabit(String habitName){
         for(Iterator<Habit> h = this.activeHabits.iterator(); h.hasNext();){

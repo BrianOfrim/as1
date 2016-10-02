@@ -24,7 +24,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Number of completions:"
         android:id="@+id/number_of_completions_title"
-        android:layout_below="@+id/habit_detail_title"
+        android:layout_below="@id/habit_detail_title"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -33,13 +33,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
         android:id="@+id/number_of_completions_number"
-        android:layout_alignTop="@+id/number_of_completions_title"
-        android:layout_toEndOf="@+id/number_of_completions_title" />
+        android:layout_alignTop="@id/number_of_completions_title"
+        android:layout_toEndOf="@id/number_of_completions_title" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/completions_listview"
-        android:layout_below="@+id/number_of_completions_title"
+        android:layout_below="@id/number_of_completions_title"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>

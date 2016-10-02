@@ -39,7 +39,9 @@ public class TodayListAdapter extends ArrayAdapter<Habit>{
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.today_habit_list_item, parent, false);
         }
+
         Habit habit = getItem(position);
+
         if(habit.completedToday()){
             convertView.setBackgroundColor(ContextCompat.getColor(currContext, R.color.lightGreen));
         }else{
@@ -54,7 +56,6 @@ public class TodayListAdapter extends ArrayAdapter<Habit>{
         completion_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //do something
                 Habit h = habitsList.get(position); //or some other task
                 h.addHabitCompletion();
                 System.out.println(h.getTitle());
