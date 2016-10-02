@@ -17,9 +17,9 @@ public class Habit implements Serializable {
     private String title;
     private boolean[] daysOfTheWeek = {false,false,false,false,false,false,false};
     //private Integer timesCompleted;
-
-
     private ArrayList<Long> habbitCompletions; // list of completion dates in millis since Jan 1 1970
+
+
 
 
     public Habit(String newTitle, boolean[] daysOfWeek, long dateCreatedMillis){

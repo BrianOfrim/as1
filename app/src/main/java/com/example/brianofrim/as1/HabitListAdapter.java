@@ -49,6 +49,7 @@ public class HabitListAdapter extends ArrayAdapter<Habit>{
                 notifyDataSetChanged();
             }
         });
+
         return convertView;
     }
 }

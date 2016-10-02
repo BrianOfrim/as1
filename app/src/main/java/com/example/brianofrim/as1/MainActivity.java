@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Calendar todayCal = Calendar.getInstance();
         todayHabits = HabitListController.getTodaysHabits(todayCal.get(Calendar.DAY_OF_WEEK) -1 );
+        todayHabitAdapter.notifyDataSetChanged();
     }
 
     @Override

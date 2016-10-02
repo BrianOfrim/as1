@@ -42,7 +42,7 @@ public class HabitList implements Serializable{
         if(!this.habitExists(newHabit)) {
             this.activeHabits.add(new Habit(newHabit, daysOfWeek, dateCreatedMillis));
         }
-
+        notifyListeners();
     }
 
     public int getNumberOfHabits(){
@@ -57,6 +57,7 @@ public class HabitList implements Serializable{
                 h.remove();
             }
         }
+        notifyListeners();
     }
 
     public ArrayList<Habit> getTodaysHabits(int dayOfWeek){
@@ -88,11 +89,11 @@ public class HabitList implements Serializable{
 
     public void addListener(Listener l) {
         getListeners().add(l);
-        notifyListeners();
+
     }
 
     public void removeListener(Listener l) {
         getListeners().remove(l);
-        notifyListeners();
+
     }
 }

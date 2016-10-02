@@ -35,7 +35,7 @@ public class HabitListController {
 
     static public HabitList getHabitList(){
         if(habitList == null){
-            loadFromFile();
+            habitList = loadFromFile();
             habitList.addListener(new Listener() {
                 @Override
                 public void update() {
@@ -64,7 +64,8 @@ public class HabitListController {
     }
     // code from lonelyTwitter
 
-    static private void loadFromFile() {
+    static private HabitList loadFromFile() {
+        HabitList newHabitList;
         try {
 
             FileInputStream fis = baseActivity.openFileInput(FILENAME);
@@ -77,20 +78,24 @@ public class HabitListController {
 
             ArrayList<Habit> habits = gson.fromJson(in,listType) ;
 
-            habitList = new HabitList(habits);
+            newHabitList = new HabitList(habits);
 
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
-            habitList = new HabitList();
+            newHabitList = new HabitList();
         } catch (IOException e) {
             // TODO Auto-generated catch block
 
             throw new RuntimeException();
         }
+        return newHabitList;
     }
 
     // code from lonelyTwitter
-    static private void saveInFile() {
+    static public void saveInFile() {
+        if(baseActivity == null){ // if the baseActivity is not set then dont continue
+            return;
+        }
         try {
             FileOutputStream fos = baseActivity.openFileOutput(FILENAME, 0);
 

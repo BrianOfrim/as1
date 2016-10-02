@@ -41,6 +41,7 @@ public class CompletionsAdapter  extends ArrayAdapter<Long> {
             public void onClick(View v) {
                 completionsList.remove(position);
                 notifyDataSetChanged();
+                HabitListController.saveInFile();
             }
         });
 

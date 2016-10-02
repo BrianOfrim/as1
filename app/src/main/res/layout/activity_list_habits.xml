@@ -24,6 +24,7 @@
         android:id="@+id/habits_listView"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/testHabitView"
+
         android:choiceMode="multipleChoice"
         android:divider="#AAAAAA"
         android:dividerHeight="2px"/>
