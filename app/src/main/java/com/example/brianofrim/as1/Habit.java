@@ -1,5 +1,6 @@
 package com.example.brianofrim.as1;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * Created by brianofrim on 2016-09-17.
  */
-public class Habit {
+public class Habit implements Serializable {
     private Calendar dateCreated;
     private String title;
     private boolean[] daysOfTheWeek = {false,false,false,false,false,false,false};

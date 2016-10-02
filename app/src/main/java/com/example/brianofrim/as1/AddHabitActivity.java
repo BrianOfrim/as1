@@ -38,19 +38,6 @@ public class AddHabitActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_habit);
-//        daysListView = (ListView) findViewById(R.id.daysOfWeekListView);
-
-//        this.daysOfTheWeek.add(new Day("Sunday", false));
-//        this.daysOfTheWeek.add(new Day("Monday", false));
-//        this.daysOfTheWeek.add(new Day("Tuesday", false));
-//        this.daysOfTheWeek.add(new Day("Wednesday", false));
-//        this.daysOfTheWeek.add(new Day("Thursday", false));
-//        this.daysOfTheWeek.add(new Day("Friday", false));
-//        this.daysOfTheWeek.add(new Day("Saturday", false));
-
-//        this.dayAdapter = new DayAdapter(this.daysOfTheWeek,this);
-//
-//        daysListView.setAdapter(this.dayAdapter);
 
         Date d = new Date();
         startYear = 1900 + d.getYear();

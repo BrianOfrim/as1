@@ -1,5 +1,6 @@
 package com.example.brianofrim.as1;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,11 +8,18 @@ import java.util.List;
 /**
  * Created by brianofrim on 2016-09-20.
  */
-public class HabitList {
-    private ArrayList<Habit> activeHabits;
+// based off https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentList.java
 
+public class HabitList implements Serializable{
+    private ArrayList<Habit> activeHabits;
+    protected transient ArrayList<Listener> listeners = null;
+
+    HabitList(ArrayList<Habit> habits) {
+        activeHabits = habits;
+    }
     HabitList(){
         activeHabits = new ArrayList<Habit>();
+        listeners = new ArrayList<Listener>();
     }
 
     public ArrayList<Habit> getHabits(){
@@ -19,15 +27,6 @@ public class HabitList {
     }
 
 
-//    private boolean habitExists(String newHabitName){
-//        for(Iterator<Habit> h = this.activeHabits.iterator(); h.hasNext();){
-//            Habit habit = h.next();
-//            if(habit.getTitle().equals(newHabitName)){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
     private boolean habitExists(String newHabitName){
         for(Iterator<Habit> h = this.activeHabits.iterator(); h.hasNext();){
             Habit habit = h.next();
@@ -72,5 +71,28 @@ public class HabitList {
 
     public Habit getHabitAt(int index){
         return activeHabits.get(index);
+    }
+
+    private ArrayList<Listener> getListeners() {
+        if (listeners == null ) {
+            listeners = new ArrayList<Listener>();
+        }
+        return listeners;
+    }
+
+    private void notifyListeners() {
+        for (Listener  listener : getListeners()) {
+            listener.update();
+        }
+    }
+
+    public void addListener(Listener l) {
+        getListeners().add(l);
+        notifyListeners();
+    }
+
+    public void removeListener(Listener l) {
+        getListeners().remove(l);
+        notifyListeners();
     }
 }

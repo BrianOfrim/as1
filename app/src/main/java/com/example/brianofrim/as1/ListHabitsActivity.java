@@ -58,12 +58,9 @@ public class ListHabitsActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_list_habits);
         habitList = HabitListController.getHabitList();
-//        daysListView = (ListView) findViewById(R.id.daysOfWeekListView);
         habitsListView = (ListView) findViewById(R.id.habits_listView) ;
         habitAdapter = new HabitListAdapter(this, habitList.getHabits());
 
-                //ArrayAdapter<>(this,R.layout.habit_list_item, habitList.getHabits());
-//
         habitsListView.setAdapter(habitAdapter);
 //
         // listener from: https://stackoverflow.com/questions/17851687/how-to-handle-the-click-event-in-listview-in-android
@@ -71,32 +68,32 @@ public class ListHabitsActivity extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-
-                //Habit habit = habitList.getHabitAt(position);
             Intent intent = new Intent(ListHabitsActivity.this,HabitDetailActivity.class);
             intent.putExtra("index",position);
             startActivity(intent);
-                //Toast.makeText(getBaseContext(), habit.getTitle(), Toast.LENGTH_LONG).show();
-
             }
         });
-//        this.dayAdapter = new DayAdapter(this.daysOfTheWeek,this);
 
-//
-//        daysListView.setAdapter(this.dayAdapter);
-        //setContentView(R.layout.activity_list_habits);
+        habitsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                //do stuff
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // upadate data
+        habitList = HabitListController.getHabitList();
+
     }
 
     @Override
     protected void onStart() {
-        // TODO Auto-generated method stub
         super.onStart();
-//        habitAdapter = new ArrayAdapter<Habit>(this, R.layout.habit_list_item ,habitList);
-
-
-//        DOWadapter = new ArrayAdapter<Day>(this,
-//                R.layout.activity_list_habits, this.daysOfTheWeek);
-//        daysListView.setAdapter(DOWadapter);
     }
 
 }

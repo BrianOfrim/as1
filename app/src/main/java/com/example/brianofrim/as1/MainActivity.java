@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Calendar todayCal = Calendar.getInstance();
+        HabitListController.setBaseActivity(this);
         todayHabits = HabitListController.getTodaysHabits(todayCal.get(Calendar.DAY_OF_WEEK) -1 );
         todayHabitsListView = (ListView) findViewById(R.id.todayHabitList);
 
@@ -32,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
         todayHabitsListView.setAdapter(todayHabitAdapter);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Calendar todayCal = Calendar.getInstance();
+        todayHabits = HabitListController.getTodaysHabits(todayCal.get(Calendar.DAY_OF_WEEK) -1 );
     }
 
     @Override

@@ -1,5 +1,20 @@
 package com.example.brianofrim.as1;
 
+import android.app.Activity;
+import android.content.Context;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
@@ -8,12 +23,25 @@ import java.util.ArrayList;
 // singleton design pattern
 // based on the student picker for android tutorial
 //https://www.youtube.com/watch?v=uLnoI7mbuEo&feature=youtu.be
+//https://www.youtube.com/watch?v=gmNfc6u1qk0
 public class HabitListController {
     private static HabitList habitList = null;
+    private static final String FILENAME = "habits2.sav";
+    private static Activity baseActivity;
+
+    static public void setBaseActivity(Activity activity){
+        baseActivity = activity;
+    }
 
     static public HabitList getHabitList(){
         if(habitList == null){
-            habitList = new HabitList();
+            loadFromFile();
+            habitList.addListener(new Listener() {
+                @Override
+                public void update() {
+                    saveInFile();
+                }
+            });
         }
         return habitList;
     }
@@ -33,6 +61,54 @@ public class HabitListController {
 
     static public Habit getHabitAt(int index){
         return getHabitList().getHabitAt(index);
+    }
+    // code from lonelyTwitter
+
+    static private void loadFromFile() {
+        try {
+
+            FileInputStream fis = baseActivity.openFileInput(FILENAME);
+            BufferedReader in = new BufferedReader(new InputStreamReader(fis));
+
+            Gson gson = new Gson();
+
+            // Code from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
+            Type listType = new TypeToken<ArrayList<Habit>>(){}.getType();
+
+            ArrayList<Habit> habits = gson.fromJson(in,listType) ;
+
+            habitList = new HabitList(habits);
+
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            habitList = new HabitList();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+
+            throw new RuntimeException();
+        }
+    }
+
+    // code from lonelyTwitter
+    static private void saveInFile() {
+        try {
+            FileOutputStream fos = baseActivity.openFileOutput(FILENAME, 0);
+
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(fos));
+
+            Gson gson = new Gson();
+            ArrayList<Habit> habits = habitList.getHabits();
+            gson.toJson(habits, out	);
+            out.flush();
+
+            fos.close();
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            throw new RuntimeException();
+        }
     }
 }
 
