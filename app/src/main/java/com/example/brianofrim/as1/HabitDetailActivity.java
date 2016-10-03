@@ -15,7 +15,7 @@ import java.util.Calendar;
  * The activity where the details of a particular habit are shown
  * details include: habit title, number of times habit was completed, a list of
  * all completed habits and the times that they were completed. The user can
- * also deleted completions
+ * also delete completions
  */
 
 public class HabitDetailActivity extends AppCompatActivity {
