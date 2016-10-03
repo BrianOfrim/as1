@@ -7,7 +7,9 @@ Unit tests at /app/src/test/java/com/example/brianofrim/as1
 Note: just test NOT androidTest
 
 compile SDK version: 24
+
 min SDK version: 18
+
 target SDK version: 24
 
 Code or inspiration taken from the following sources:
