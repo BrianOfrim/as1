@@ -4,6 +4,7 @@ Brian Ofrim (bofrim)
 Demo video: https://www.youtube.com/watch?v=84XCmQLLGKE
 
 Unit tests at /app/src/test/java/com/example/brianofrim/as1
+Note: just test NOT androidTest
 
 compile SDK version: 24
 min SDK version: 18
