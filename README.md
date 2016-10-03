@@ -14,6 +14,8 @@ min SDK version: 18
 
 target SDK version: 24
 
+Emulator phone used: Nexus 4 with API 18
+
 Code or inspiration taken from the following sources:
 
 Student Picker by Abram Hindle

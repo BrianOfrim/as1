@@ -41,7 +41,7 @@ public class HabitListController {
     private static Activity baseActivity;
 
     static public void setBaseActivity(Activity activity){
-        baseActivity = activity;
+        baseActivity = activity; // activity to be used for context
     }
 
     static public HabitList getHabitList(){
