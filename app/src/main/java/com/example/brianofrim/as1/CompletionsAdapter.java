@@ -40,7 +40,7 @@ public class CompletionsAdapter  extends ArrayAdapter<Long> {
         TextView completion_text = (TextView) convertView.findViewById(R.id.completion_datetime_textview);
 
         SimpleDateFormat completionFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
-
+        completionFormat.setTimeZone(currCal.getTimeZone());
         completion_text.setText(completionFormat.format(currCal.getTime()));
 
         Button delete_btn= (Button) convertView.findViewById(R.id.delete_completion_btn);

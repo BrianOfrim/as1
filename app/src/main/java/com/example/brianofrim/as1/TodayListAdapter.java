@@ -65,7 +65,7 @@ public class TodayListAdapter extends ArrayAdapter<Habit>{
                 if(currContext instanceof MainActivity){
                     ((MainActivity) currContext).showHabitCompletion(h.getTitle());
                 }
-                
+
                 HabitListController.saveInFile();
             }
         });

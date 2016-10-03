@@ -57,7 +57,7 @@ public class HabitList implements Serializable{
                 h.remove();
             }
         }
-        notifyListeners();
+
     }
 
     public ArrayList<Habit> getTodaysHabits(int dayOfWeek){

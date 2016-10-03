@@ -62,8 +62,7 @@ public class HabitListController {
     static public Habit getHabitAt(int index){
         return getHabitList().getHabitAt(index);
     }
-    // code from lonelyTwitter
-
+    // code from lonelyTwitterrom
     static private HabitList loadFromFile() {
         HabitList newHabitList;
         try {
