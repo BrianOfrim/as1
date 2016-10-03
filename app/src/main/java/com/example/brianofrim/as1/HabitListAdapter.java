@@ -26,7 +26,7 @@ public class HabitListAdapter extends ArrayAdapter<Habit>{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Habit habit = getItem(position);
+        final Habit habit = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.habit_list_item, parent, false);
@@ -39,13 +39,13 @@ public class HabitListAdapter extends ArrayAdapter<Habit>{
         habit_DOW.setText("Do on: " + habit.formatDaysOfWeek());
         // Return the completed view to render on screen
 
-
         Button delete_btn= (Button) convertView.findViewById(R.id.delete_habit_button);
 
         delete_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 habitList.remove(position);
+                HabitListController.removeHabitFromList(habit.getTitle());
                 notifyDataSetChanged();
             }
         });

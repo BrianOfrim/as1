@@ -22,9 +22,6 @@ import java.util.ArrayList;
 
 public class ListHabitsActivity extends AppCompatActivity{
 
-//    private ArrayList<Day> daysOfTheWeek = new ArrayList<Day>();
-//    private ListView daysListView;
-//    private DayAdapter dayAdapter;
     private HabitList habitList;
     private ListView habitsListView;
     private ArrayAdapter<Habit> habitAdapter;

@@ -21,9 +21,15 @@ import java.util.ArrayList;
  * Created by brianofrim on 2016-09-26.
  */
 // singleton design pattern
-// based on the student picker for android tutorial
+// based on the student picker for android tutorial by Abram Hindle
 //https://www.youtube.com/watch?v=uLnoI7mbuEo&feature=youtu.be
 //https://www.youtube.com/watch?v=gmNfc6u1qk0
+// LICENSE : https://github.com/abramhindle/student-picker/blob/master/LICENSE
+
+// File I/O based on Lonely Twitter by Joshua Charles Campbell
+// https://github.com/joshua2ua/lonelyTwitter
+
+
 public class HabitListController {
     private static HabitList habitList = null;
     private static final String FILENAME = "habits2.sav";
@@ -62,7 +68,7 @@ public class HabitListController {
     static public Habit getHabitAt(int index){
         return getHabitList().getHabitAt(index);
     }
-    // code from lonelyTwitterrom
+    // code from lonelyTwitter
     static private HabitList loadFromFile() {
         HabitList newHabitList;
         try {

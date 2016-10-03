@@ -23,11 +23,6 @@ import java.util.Date;
 
 public class AddHabitActivity extends AppCompatActivity {
 
-//    private ArrayList<Day> daysOfTheWeek = new ArrayList<Day>();
-//    private ListView daysListView;
-//    private DayAdapter dayAdapter;
-//    DialogFragment newFragment;
-
     int startYear;
     int startMonth;
     int startDay;
@@ -45,17 +40,12 @@ public class AddHabitActivity extends AppCompatActivity {
         startDay = d.getDate();
         TextView dateTextView = (TextView)findViewById(R.id.selectedDateText);
         dateTextView.setText("Start: " + startDay +"/"+ (startMonth + 1) +"/" + startYear);
-//        newFragment = new DatePickerFragment();
-        //setContentView(R.layout.activity_list_habits);
     }
 
     @Override
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
-//        DOWadapter = new ArrayAdapter<Day>(this,
-//                R.layout.activity_list_habits, this.daysOfTheWeek);
-//        daysListView.setAdapter(DOWadapter);
     }
 
     @Override

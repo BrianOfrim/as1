@@ -16,7 +16,6 @@ public class Habit implements Serializable {
     private Calendar dateCreated;
     private String title;
     private boolean[] daysOfTheWeek = {false,false,false,false,false,false,false};
-    //private Integer timesCompleted;
     private ArrayList<Long> habbitCompletions; // list of completion dates in millis since Jan 1 1970
 
 
@@ -32,10 +31,6 @@ public class Habit implements Serializable {
     public Calendar getDateCreated() {
         return dateCreated;
     }
-
-//    public void setDateCreated(Calendar dateCreated) {
-//        this.dateCreated = dateCreated;
-//    }
 
     public String getTitle() {
         return title;
@@ -66,7 +61,6 @@ public class Habit implements Serializable {
         Calendar nowCal = Calendar.getInstance();
         this.habbitCompletions.add(nowCal.getTimeInMillis());
         return nowCal.getTimeInMillis();
-        //System.out.println(this.habbitCompletions.get(this.habbitCompletions.size() - 1));
     }
 
     public void removeHabitCompletion(Long completionTime){ // competionTime is in millis since Jan 1 1970
@@ -78,7 +72,6 @@ public class Habit implements Serializable {
         }
     }
 
-    // check each day since
     public Integer getTimesCompleted(){
         return habbitCompletions.size();
 

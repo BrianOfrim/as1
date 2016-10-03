@@ -60,7 +60,6 @@ public class TodayListAdapter extends ArrayAdapter<Habit>{
                 h.addHabitCompletion();
                 System.out.println(h.getTitle());
                 RelativeLayout listItem = (RelativeLayout) v.getParent();
-                //v.setBackgroundColor(ContextCompat.getColor(currContext, R.color.lightGreen));
                 listItem.setBackgroundColor(ContextCompat.getColor(currContext, R.color.lightGreen));
                 if(currContext instanceof MainActivity){
                     ((MainActivity) currContext).showHabitCompletion(h.getTitle());

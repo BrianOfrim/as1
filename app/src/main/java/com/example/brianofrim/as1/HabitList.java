@@ -8,7 +8,9 @@ import java.util.List;
 /**
  * Created by brianofrim on 2016-09-20.
  */
-// based off https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentList.java
+// based off Student Picker by Abram Hindle
+// URL: https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentList.java
+// LICENSE: https://github.com/abramhindle/student-picker/blob/master/LICENSE
 
 public class HabitList implements Serializable{
     private ArrayList<Habit> activeHabits;
@@ -19,7 +21,6 @@ public class HabitList implements Serializable{
     }
     HabitList(){
         activeHabits = new ArrayList<Habit>();
-        listeners = new ArrayList<Listener>();
     }
 
     public ArrayList<Habit> getHabits(){
@@ -57,7 +58,7 @@ public class HabitList implements Serializable{
                 h.remove();
             }
         }
-
+        notifyListeners();
     }
 
     public ArrayList<Habit> getTodaysHabits(int dayOfWeek){
