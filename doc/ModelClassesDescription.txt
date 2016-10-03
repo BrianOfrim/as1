@@ -2,8 +2,8 @@ Model classes
 ===========================================================
 Habit
     Stores: Habit title, date created, days where the habit is active, habit completions list
-    Can: get and set title, date created, days of the week where habit is active, completions
-         determine if the habit has been completed today
+    Can: get and set title, date created, days of the week where habit is active, 
+         add and remove completions, determine if the habit has been completed today
 HabitList
     Stores: Habits, Change listenters
     Can: Add and Remove habits, add and remove listeners, update listeners when list changes
