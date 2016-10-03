@@ -8,6 +8,8 @@ Note: just test NOT androidTest
 
 compile SDK version: 24
 
+build Tools version: 24.0.2
+
 min SDK version: 18
 
 target SDK version: 24
