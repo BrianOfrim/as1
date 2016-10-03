@@ -21,6 +21,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Date;
 
+/*
+ * The activity where habits are added
+ */
+
 public class AddHabitActivity extends AppCompatActivity {
 
     int startYear;

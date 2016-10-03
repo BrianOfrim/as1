@@ -20,6 +20,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*
+ * Activity for displaying a list of all habits
+ */
+
 public class ListHabitsActivity extends AppCompatActivity{
 
     private HabitList habitList;
@@ -59,7 +63,7 @@ public class ListHabitsActivity extends AppCompatActivity{
         habitAdapter = new HabitListAdapter(this, habitList.getHabits());
 
         habitsListView.setAdapter(habitAdapter);
-//
+
         // listener from: https://stackoverflow.com/questions/17851687/how-to-handle-the-click-event-in-listview-in-android
         habitsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

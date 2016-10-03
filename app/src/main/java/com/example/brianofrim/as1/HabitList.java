@@ -12,6 +12,10 @@ import java.util.List;
 // URL: https://github.com/abramhindle/student-picker/blob/master/src/ca/softwareprocess/studentpicker/StudentList.java
 // LICENSE: https://github.com/abramhindle/student-picker/blob/master/LICENSE
 
+/*
+* A list for storing habits
+*  listeners can be added so they can be updated when the contents of the HabitList change
+*/
 public class HabitList implements Serializable{
     private ArrayList<Habit> activeHabits;
     protected transient ArrayList<Listener> listeners = null;

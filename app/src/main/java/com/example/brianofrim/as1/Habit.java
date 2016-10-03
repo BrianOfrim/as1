@@ -12,6 +12,12 @@ import java.util.List;
 /**
  * Created by brianofrim on 2016-09-17.
  */
+
+/*
+ * Habits are stored in the habit class
+ * info stored: habit title, date created, days of the week where habit is actice, a list of habit comleteions
+ *
+ */
 public class Habit implements Serializable {
     private Calendar dateCreated;
     private String title;

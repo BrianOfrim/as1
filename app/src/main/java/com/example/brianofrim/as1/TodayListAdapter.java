@@ -20,6 +20,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*
+ * An array adapter a list of habits that are active on the current day
+ * Allows the user to complete habits
+ * The background color reflects the status of the Habit's completion on the current day
+ */
+
 public class TodayListAdapter extends ArrayAdapter<Habit>{
     private ArrayList<Habit> habitsList;
     private Context currContext;

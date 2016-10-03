@@ -13,6 +13,11 @@ import java.util.ArrayList;
 /**
  * Created by brianofrim on 2016-09-27.
  */
+
+/*
+ * An adapter for an array list of habits
+ * displays: habit name, days where habit is active, button to delete the habit
+ */
 public class HabitListAdapter extends ArrayAdapter<Habit>{
     private ArrayList<Habit> habitList;
     private Context currContext;

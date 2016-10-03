@@ -21,6 +21,9 @@ import java.util.Calendar;
  * Created by brianofrim on 2016-09-28.
  */
 
+/*
+ * Adapter for displaying and controlling completions
+ */
 public class CompletionsAdapter  extends ArrayAdapter<Long> {
     private ArrayList<Long> completionsList;
     private Context currContext;

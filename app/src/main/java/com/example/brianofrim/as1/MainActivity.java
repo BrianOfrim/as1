@@ -13,6 +13,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/*
+    The main activity of the app
+    **************************************
+    This activity shows a list of the habits that are active on the current day
+    ***************************************
+    The user completes habits in this acticity
+ */
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Habit> todayHabits;

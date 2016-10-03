@@ -29,6 +29,11 @@ import java.util.ArrayList;
 // File I/O based on Lonely Twitter by Joshua Charles Campbell
 // https://github.com/joshua2ua/lonelyTwitter
 
+/*
+ * A controller that implements a singleton design pattern for HabitList
+ * all methods and variable are static
+ * this controller handles file I/O for the app
+ */
 
 public class HabitListController {
     private static HabitList habitList = null;
