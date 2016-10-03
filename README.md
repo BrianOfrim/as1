@@ -6,13 +6,13 @@ Demo video: https://www.youtube.com/watch?v=84XCmQLLGKE
 Unit tests at /app/src/test/java/com/example/brianofrim/as1
 Note: just test NOT androidTest
 
-compile SDK version: 24
+compile SDK version: 23
 
-build Tools version: 24.0.2
+build Tools version: 22.0.1
 
 min SDK version: 18
 
-target SDK version: 24
+target SDK version: 23
 
 Emulator phone used: Nexus 4 with API 18
 
