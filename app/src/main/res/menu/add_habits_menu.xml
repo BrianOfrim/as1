@@ -6,7 +6,7 @@
         app:showAsAction="ifRoom"
         android:onClick="goToToday"/>
     <item android:id="@+id/habits_menu_item_addHabits"
-        android:title="View habits"
+        android:title="View all habits"
         app:showAsAction="always"
         android:onClick="goToViewHabits"/>
 </menu>

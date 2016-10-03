@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void showHabitCompletion(String habitTitle){
+        Toast.makeText(this,habitTitle + " completed" , Toast.LENGTH_SHORT).show();
+    }
+
 
 }
 

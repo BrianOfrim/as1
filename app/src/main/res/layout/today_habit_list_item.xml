@@ -6,12 +6,14 @@
         android:id = "@+id/today_habit_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
         android:textStyle="bold"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="comptete"
+        android:text="complete"
         android:id="@+id/completeHabitBtn"
         android:layout_toLeftOf="@id/today_habit_title"
         android:layout_alignParentTop="true"

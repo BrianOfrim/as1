@@ -16,13 +16,14 @@
         android:text="Habit Detail"
         android:id="@+id/habit_detail_title"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Number of completions:"
+        android:text="Number of completions: "
         android:id="@+id/number_of_completions_title"
         android:layout_below="@id/habit_detail_title"
         android:layout_alignParentStart="true" />
@@ -41,5 +42,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/completions_listview"
         android:layout_below="@id/number_of_completions_title"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:divider="#AAAAAA"
+        android:dividerHeight="2px"/>
 </RelativeLayout>

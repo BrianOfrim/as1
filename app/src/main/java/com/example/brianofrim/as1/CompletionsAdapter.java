@@ -9,14 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Created by brianofrim on 2016-09-28.
  */
+
 public class CompletionsAdapter  extends ArrayAdapter<Long> {
     private ArrayList<Long> completionsList;
     private Context currContext;
@@ -31,8 +35,13 @@ public class CompletionsAdapter  extends ArrayAdapter<Long> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.completion_item, parent, false);
         }
         Long completionItem = getItem(position);
+        final Calendar currCal = Calendar.getInstance();
+        currCal.setTimeInMillis(completionItem);
         TextView completion_text = (TextView) convertView.findViewById(R.id.completion_datetime_textview);
-        completion_text.setText(completionItem.toString());
+
+        SimpleDateFormat completionFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
+
+        completion_text.setText(completionFormat.format(currCal.getTime()));
 
         Button delete_btn= (Button) convertView.findViewById(R.id.delete_completion_btn);
 
@@ -40,6 +49,10 @@ public class CompletionsAdapter  extends ArrayAdapter<Long> {
             @Override
             public void onClick(View v) {
                 completionsList.remove(position);
+
+                if(currContext instanceof HabitDetailActivity){
+                    ((HabitDetailActivity) currContext).numCompletionsUpdate();
+                }
                 notifyDataSetChanged();
                 HabitListController.saveInFile();
             }

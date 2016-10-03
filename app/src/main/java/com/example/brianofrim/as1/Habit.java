@@ -20,8 +20,6 @@ public class Habit implements Serializable {
     private ArrayList<Long> habbitCompletions; // list of completion dates in millis since Jan 1 1970
 
 
-
-
     public Habit(String newTitle, boolean[] daysOfWeek, long dateCreatedMillis){
         this.title = newTitle;
         this.dateCreated = new GregorianCalendar();
@@ -119,8 +117,8 @@ public class Habit implements Serializable {
         if(habbitCompletions.size() == 0) return false;
         Long todayInMillis = getTodayInMillis();
         Long lastCompletion = habbitCompletions.get(habbitCompletions.size() -1);
-
         return lastCompletion > todayInMillis;
     }
+
 
 }

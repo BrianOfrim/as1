@@ -9,30 +9,46 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class HabitDetailActivity extends AppCompatActivity {
     Habit habit;
     private ArrayList<Long> completions;
     private ListView completionListView;
     private ArrayAdapter<Long> completionAdapter;
+    private int listIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_habit_detail);
         Intent intent = getIntent();
-        Integer habitIndex = intent.getIntExtra("index",0);
-        habit = HabitListController.getHabitAt(habitIndex);
+        listIndex = intent.getIntExtra("index",0);
+        habit = HabitListController.getHabitAt(listIndex);
         completions = habit.getHabitCompletions();
         TextView habit_title = (TextView) findViewById(R.id.habit_detail_title);
         habit_title.setText(habit.getTitle());
         TextView number_of_completions = (TextView) findViewById(R.id.number_of_completions_number);
         Integer numOfCompletions = habit.getTimesCompleted();
-        //number_of_completions.setText(numOfCompletions);
+        number_of_completions.setText(numOfCompletions.toString());
 
         completionListView = (ListView) findViewById(R.id.completions_listview);
         completionAdapter = new CompletionsAdapter(this, habit.getHabitCompletions());
         completionListView.setAdapter(completionAdapter);
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        completions = habit.getHabitCompletions();
+    }
+
+    public void numCompletionsUpdate(){
+        TextView number_of_completions = (TextView) findViewById(R.id.number_of_completions_number);
+        Integer numOfCompletions = habit.getTimesCompleted();
+        number_of_completions.setText(numOfCompletions.toString());
     }
 }
 
